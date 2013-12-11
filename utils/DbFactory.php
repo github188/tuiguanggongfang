@@ -8,7 +8,7 @@ class DbFactory {
 		if (array_key_exists($dbKey, self::$db)) {
 			return self::$db[$dbKey];
 		} else {
-			$newdb = new MysqlDb($dbKey);
+			$newdb = new MysqliDb($dbKey);
 			if ($newdb->connect()) {
 				self::$db[$dbKey] = $newdb;
 				return $newdb;

@@ -119,6 +119,7 @@ function ccdb_log($confName ,$logLevel, $errorCode, $logMessage = "no error msg"
 	$logMessage = genErrMsg($errorCode , $logMessage);
 	$logFileName = $confName . "_" . strtolower($logLevel);
 	MiniLog::instance(ROOT_PATH . "/log/")->log($logFileName, $prefix . $logMessage);
+	//MiniLog::instance(ROOT_PATH . "/../log")->log($logFileName, $prefix, $logMessage);
 	if (isLogLevelOff("DEBUG") || $logLevel == "DEBUG"){
 		return ;
 	}else {

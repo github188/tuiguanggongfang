@@ -22,8 +22,34 @@ class WeChatCallBack {
     
     protected  function makeHint($hint) {
     	$resultStr = sprintf ( HINT_TPL, $this->_fromUserName, $this->_toUserName, $this->_time, 'text', $hint );
+		interface_log(INFO, EC_OK, "makeHint:" . $resultStr);
 		return $resultStr;
     }
+	
+	protected function makeHintVoice($hint) {
+		//TODO:
+		return makeHint($hint);
+	}
+	
+	protected function makeHintPic($hint) {
+		//TODO:
+		return makeHint($hint);
+	}
+	
+	protected function makeHintPicNText($hint) {
+		//TODO:
+		return makeHint($hint);
+	}
+	
+	protected function makeHintVideo($hint) {
+		//TODO:
+		return makeHint($hint);
+	}
+	
+	protected function makeHintMusic($hint) {
+		//TODO:
+		return makeHint($hint);
+	}
 	
 	public function init($postObj) {
 		// 获取参数
@@ -38,6 +64,7 @@ class WeChatCallBack {
 		$this->_msgId = ( int ) trim ( $this->_postObject->MsgId );
 		$this->_time = time ();
 		if(!($this->_fromUserName && $this->_toUserName && $this->_msgType)) {
+			interface_log(INFO, EC_OK, "Info Missing");
 			return false;
 		}
 		return true;

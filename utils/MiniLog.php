@@ -32,6 +32,7 @@ class MiniLog {
 		$nowTime = time();
 		$logSuffix = date('Ymd', $nowTime);
 		$handle = fopen($this->_path . '/' . $fileName . $logSuffix . ".log", 'a');
+		//$handle = fopen($this->_path . $fileName . $logSuffix . ".log", 'a');
 		$this->_handleArr[$fileName] = $handle;
 		
 		return $handle;
